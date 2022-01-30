@@ -18,4 +18,24 @@ module.exports = withPWA({
   eslint: {
     dirs: ["src"],
   },
+  swcMinify: true,
+
+  webpack: (config, { dev, isServer }) => {
+    // Replace React with Preact only in client production build
+    if (!dev && !isServer) {
+      Object.assign(config.resolve.alias, {
+        react: "preact/compat",
+        "react-dom/test-utils": "preact/test-utils",
+        "react-dom": "preact/compat",
+      });
+    }
+
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ["@svgr/webpack"],
+    });
+
+    return config;
+  },
 });
