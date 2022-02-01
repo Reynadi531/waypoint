@@ -23,6 +23,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
+    "**/**/*.ts",
     "**/*.tsx",
     "src",
     "commitlint.config.js"

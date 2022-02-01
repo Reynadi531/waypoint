@@ -23,7 +23,7 @@ function CTAHeader() {
           <MenuItem as="a" href="/auth/login">
             Login
           </MenuItem>
-          <MenuItem as="a" href="/auth/signup">
+          <MenuItem as="a" href="/auth/register">
             Signup
           </MenuItem>
         </MenuList>
