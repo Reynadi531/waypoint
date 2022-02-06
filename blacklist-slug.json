@@ -1,0 +1,7 @@
+[
+  "auth/sign-in",
+  "auth/sign-up",
+  "auth/forget-password",
+  "auth/set-new-password",
+  "dashboard"
+]

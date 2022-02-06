@@ -8,7 +8,10 @@ import {
 } from "@chakra-ui/react";
 import { RiAccountCircleFill } from "react-icons/ri";
 
-function CTAHeader() {
+import { handleLogout } from "lib/helper/supabase";
+import useUser from "lib/hooks/useUser";
+
+const NotAuthenticatedMenu = () => {
   return (
     <Box>
       <Menu>
@@ -30,6 +33,35 @@ function CTAHeader() {
       </Menu>
     </Box>
   );
+};
+
+const AuthenticatedMenu = () => {
+  return (
+    <Box>
+      <Menu>
+        <MenuButton
+          as={IconButton}
+          aria-label="account"
+          icon={<RiAccountCircleFill />}
+          variant="solid"
+          fontSize="lg"
+        />
+        <MenuList>
+          <MenuItem as="a" href="/dashboard">
+            Dashboard
+          </MenuItem>
+          <MenuItem as="button" onClick={handleLogout}>
+            Logout
+          </MenuItem>
+        </MenuList>
+      </Menu>
+    </Box>
+  );
+};
+
+function CTAHeader() {
+  const { data } = useUser();
+  return <div>{!data ? <NotAuthenticatedMenu /> : <AuthenticatedMenu />}</div>;
 }
 
 export default CTAHeader;

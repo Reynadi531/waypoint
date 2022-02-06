@@ -10,7 +10,6 @@ const Header = () => {
       <Heading as="h1" size="lg">
         <Link href="/">Waypoint.</Link>
       </Heading>
-
       <Box marginLeft="auto">
         <Stack spacing="4" direction="row">
           <ThemeToggle />

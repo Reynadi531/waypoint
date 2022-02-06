@@ -1,24 +1,24 @@
 /** @type {import('next-seo').DefaultSeoProps} */
 const defaultSEOConfig = {
-  title: "nextarter-chakra",
-  titleTemplate: "%s | nextarter-chakra",
-  defaultTitle: "nextarter-chakra",
-  description: "Next.js + chakra-ui + TypeScript template",
-  canonical: "https://nextarter-chakra.sznm.dev",
+  title: "Waypoint",
+  titleTemplate: "%s | Waypoint",
+  defaultTitle: "Waypoint",
+  description: "Easy short url for your link",
+  canonical: "https://waypoint.reylabs.xyz",
   openGraph: {
-    url: "https://nextarter-chakra.sznm.dev",
+    url: "https://waypoint.reylabs.xyz",
     title: "nextarter-chakra",
-    description: "Next.js + chakra-ui + TypeScript template",
+    description: "Easy short url for your link",
     images: [
       {
-        url: "https://og-image.sznm.dev/**nextarter-chakra**.sznm.dev.png?theme=dark&md=1&fontSize=125px&images=https%3A%2F%2Fsznm.dev%2Favataaars.svg&widths=250",
-        alt: "nextarter-chakra.sznm.dev og-image",
+        url: "https://cdn.statically.io/og/theme=dark/Waypoint..jpg",
+        alt: "waypoint.reylabs.xyz og-image",
       },
     ],
-    site_name: "nextarter-chakra",
+    site_name: "Waypoint",
   },
   twitter: {
-    handle: "@sozonome",
+    handle: "@reynadi17",
     cardType: "summary_large_image",
   },
 };

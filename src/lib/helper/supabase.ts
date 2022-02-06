@@ -69,7 +69,7 @@ export const handleLogout = async (): Promise<void> => {
 
   setTimeout(() => {
     window.localStorage.removeItem("supabase.auth.token");
-    window.location.assign("/");
+    window.location.href = "/";
   }, 500);
 };
 
@@ -83,6 +83,93 @@ export const forgetPassword = async ({
     method: "POST",
     credentials: "same-origin",
     body: JSON.stringify({ email }),
+  });
+
+  return res.json();
+};
+
+type CheckSlugArg = {
+  slug: string;
+};
+
+export const checkSlug = async ({ slug }: CheckSlugArg): Promise<any> => {
+  const res = await fetch(`/api/url/check/${slug}`, {
+    ...defaultFetchOption,
+    credentials: "same-origin",
+    method: "GET",
+  });
+  return res.json();
+};
+
+export type SaveUrlArg = {
+  userId: string;
+  url: string;
+  slug: string;
+};
+
+export const saveUrl = async ({
+  userId,
+  url,
+  slug,
+}: SaveUrlArg): Promise<any> => {
+  const res = await fetch(`/api/url/save/${userId}`, {
+    ...defaultFetchOption,
+    method: "PUT",
+    credentials: "same-origin",
+    body: JSON.stringify({ url, slug }),
+  });
+  return res.json();
+};
+
+export type DeleteUrlArg = {
+  id: string;
+  userId: string;
+};
+
+export const deleteUrl = async ({ id, userId }: DeleteUrlArg): Promise<any> => {
+  const res = await fetch(`/api/url/delete/${id}`, {
+    ...defaultFetchOption,
+    method: "DELETE",
+    credentials: "same-origin",
+    body: JSON.stringify({ userId }),
+  });
+  return res.json();
+};
+
+export type PatchSlugArg = {
+  id: string;
+  slug: string;
+  userId: string;
+};
+
+export const patchSlug = async ({
+  id,
+  slug,
+  userId,
+}: PatchSlugArg): Promise<any> => {
+  const res = await fetch(`/api/url/patch/${id}`, {
+    ...defaultFetchOption,
+    method: "PATCH",
+    credentials: "same-origin",
+    body: JSON.stringify({ slug, userId }),
+  });
+  return res.json();
+};
+
+export type SetNewPasswordArg = {
+  password: string;
+  accessToken: string;
+};
+
+export const setNewPassword = async ({
+  password,
+  accessToken,
+}: SetNewPasswordArg): Promise<any> => {
+  const res = await fetch("/api/auth/set-new-password", {
+    ...defaultFetchOption,
+    method: "POST",
+    credentials: "same-origin",
+    body: JSON.stringify({ password, accessToken }),
   });
 
   return res.json();
