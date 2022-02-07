@@ -7,7 +7,7 @@ const defaultSEOConfig = {
   canonical: "https://waypoint.reylabs.xyz",
   openGraph: {
     url: "https://waypoint.reylabs.xyz",
-    title: "nextarter-chakra",
+    title: "Waypoint",
     description: "Easy short url for your link",
     images: [
       {
