@@ -49,7 +49,13 @@ function Form() {
       {!isAdding ? (
         <Stack spacing="8" m="5" display={isLoading ? "none" : "initial"}>
           {data.map((x: IUrl) => (
-            <UrlItem real_url={x.real_url} hit={x.hit} slug={x.slug} />
+            <UrlItem
+              real_url={x.real_url}
+              id={x.id}
+              hit={x.hit}
+              slug={x.slug}
+              userId={user.data?.id || ""}
+            />
           ))}
         </Stack>
       ) : (

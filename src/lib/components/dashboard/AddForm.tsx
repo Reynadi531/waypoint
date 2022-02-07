@@ -85,6 +85,7 @@ const AddForm: FC<{ user: IUser | null }> = ({ user }) => {
     }
     SetIsLoading(false);
 
+    resetForm();
     toast({
       title: "Success save slug",
       description: "Slug and link already saved. Try it now",
